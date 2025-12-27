@@ -31,44 +31,94 @@
             background: #F5F5F5;
         }
 
-        /* Carousel */
-        .carousel-container {
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Gallery Item Hover */
+        .gallery-item {
             position: relative;
-            max-width: 350px;
-            max-height: 700px;
-            margin: 0 auto;
             overflow: hidden;
-        }
-
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            max-height: 700px;
-            width: auto;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        .carousel-dot {
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
-        .carousel-dot.active {
-            background-color: #52B69A;
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(61, 88, 69, 0.15);
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Overlay */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(61, 88, 69, 0.95), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 900px;
+            max-height: 90vh;
+            position: relative;
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Feature Cards */
@@ -120,7 +170,7 @@
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#gallery" class="text-dark-green hover:text-primary font-medium transition">Gallery</a>
                     <a href="#features" class="text-dark-green hover:text-primary font-medium transition">Features</a>
-                    <a href="privacy.html" class="text-dark-green hover:text-primary font-medium transition">Privacy</a>
+                    <a href="#privacy" class="text-dark-green hover:text-primary font-medium transition">Privacy</a>
                     <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="px-6 py-2.5 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-medium">
                         Download
                     </a>
@@ -146,182 +196,223 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 hero-bg">
         <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-black text-dark-green mb-6 leading-tight fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-black text-dark-green mb-6 leading-tight fade-in-up">
                 The only app you need at 3am
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed fade-in-up delay-1">
-                When your baby wakes in the middle of the night, JustFed helps you quickly track feeds, sleep, and nappies — without thinking.
+            <p class="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto fade-in-up delay-1">
+                Track feeds, sleep, and diapers — simply.
             </p>
             <div class="fade-in-up delay-2">
-                <div class="flex justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-semibold text-lg shadow-lg group">
                         <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                         </svg>
                         Download on App Store
                     </a>
+                    <a href="#gallery" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary border-2 border-primary rounded-xl hover:bg-gray-50 transition font-semibold text-lg">
+                        Explore Gallery
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- App Showcase Section -->
-    <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Content Side -->
-                <div class="order-2 lg:order-1">
-                    <h2 class="text-4xl md:text-5xl font-bold text-dark-green mb-6 leading-tight">
-                        Built by parents, for parents
-                    </h2>
-                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        Every feature is thoughtfully designed to be fast, intuitive, and reliable—because we understand
-                        those precious moments (and challenging nights) with your little one.
-                    </p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-green mb-4">See It In Action</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Click any screen to explore the features that make parenting easier
+                </p>
+            </div>
 
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">One-tap logging</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Log feeds, sleep, and nappies in seconds. No forms to fill out, no endless tapping.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">Always know when</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    "Since last" timers show exactly when the last feed, sleep, or change happened.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">Stay in sync with your partner</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Real-time CloudKit sync means you're always on the same page. No more "did you feed the baby?"
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">Spot patterns instantly</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    7-day insights with simple charts help you understand your baby's routine.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">Your data stays yours</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Zero tracking. Zero ads. Everything stays on your device unless you choose to pair.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-dark-green mb-2">Live Activity support</h3>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Track ongoing sessions from your lock screen and Dynamic Island.
-                                </p>
-                            </div>
-                        </div>
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 - Welcome -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(0)">
+                    <img src="img/welcome.png" alt="Welcome Screen" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Welcome</h3>
+                        <p class="text-white/90">Your journey starts here</p>
                     </div>
                 </div>
 
-                <!-- Carousel Side -->
-                <div class="order-1 lg:order-2">
-                    <div class="relative">
-                        <!-- Carousel Container -->
-                        <div class="carousel-container overflow-hidden rounded-3xl shadow-2xl bg-white">
-                            <div class="carousel-slides flex transition-transform duration-500 ease-in-out">
-                                <div class="carousel-slide min-w-full">
-                                    <img src="img/main.png" alt="Track everything at a glance" class="w-full">
-                                </div>
-                                <div class="carousel-slide min-w-full">
-                                    <img src="img/logging.png" alt="Quick logging interface" class="w-full">
-                                </div>
-                                <div class="carousel-slide min-w-full">
-                                    <img src="img/insights.png" alt="7-day insights" class="w-full">
-                                </div>
-                                <div class="carousel-slide min-w-full">
-                                    <img src="img/pair.png" alt="Partner pairing" class="w-full">
-                                </div>
-                                <div class="carousel-slide min-w-full">
-                                    <img src="img/dynamic.png" alt="Live Activity" class="w-full">
-                                </div>
-                            </div>
-                        </div>
+                <!-- Gallery Item 2 - Main -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(1)">
+                    <img src="img/main.png" alt="Main Screen" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Track Everything</h3>
+                        <p class="text-white/90">See what happened last at a glance</p>
+                    </div>
+                </div>
 
-                        <!-- Carousel Indicators -->
-                        <div class="flex justify-center mt-6 space-x-2">
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-primary transition" data-slide="0"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition hover:bg-gray-400" data-slide="1"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition hover:bg-gray-400" data-slide="2"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition hover:bg-gray-400" data-slide="3"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition hover:bg-gray-400" data-slide="4"></button>
-                        </div>
+                <!-- Gallery Item 3 - Logging -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(2)">
+                    <img src="img/logging.png" alt="Logging Screen" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Quick Logging</h3>
+                        <p class="text-white/90">Log feeds in seconds, even at 3am</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 - Insights -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(3)">
+                    <img src="img/insights.png" alt="Insights Screen" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Smart Insights</h3>
+                        <p class="text-white/90">Understand patterns over 7 days</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 - Pairing -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(4)">
+                    <img src="img/pair.png" alt="Pairing Screen" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Partner Sync</h3>
+                        <p class="text-white/90">Stay connected with real-time updates</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 - Dynamic Island -->
+                <div class="gallery-item bg-white rounded-3xl overflow-hidden shadow-lg" onclick="openModal(5)">
+                    <img src="img/dynamic.png" alt="Dynamic Island" class="w-full">
+                    <div class="gallery-overlay">
+                        <h3 class="text-white font-bold text-xl mb-2">Live Activity</h3>
+                        <p class="text-white/90">Track from your lock screen</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-green mb-4">Simple, Yet Powerful</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Everything you need to track your baby's routine, nothing you don't
+                </p>
+            </div>
 
-    <!-- CTA Section -->
-    <section id="privacy" class="py-24 px-4 sm:px-6 lg:px-8 hero-bg">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">Lightning Fast</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Log feeds, sleep, and nappies with a single tap. No forms, no hassle.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">Partner Sync</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Pair with your partner for real-time updates via secure CloudKit sync.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">7-Day Insights</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Beautiful charts show patterns and trends over the past week.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">Live Activity</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Track ongoing sessions from your lock screen and Dynamic Island.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">Privacy First</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Zero tracking. Zero ads. Your data stays on your device, always.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card rounded-2xl p-8 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-green mb-3">Since Last</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Always know when the last feed, sleep, or nappy change happened.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="py-20 px-4 sm:px-6 lg:px-8 hero-bg">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-dark-green mb-6">
-                Ready to simplify your parenting journey?
-            </h2>
-            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Join parents who trust JustFed to help them stay organized and present with their little ones.
+            <h2 class="text-4xl md:text-5xl font-bold text-dark-green mb-6">Your Data, Your Control</h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+                We built JustFed with privacy as the foundation. No tracking, no ads, no data collection.
             </p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-lg font-bold text-dark-green mb-2">No Tracking</h3>
+                    <p class="text-gray-600">We don't know you're using the app</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-lg font-bold text-dark-green mb-2">Local First</h3>
+                    <p class="text-gray-600">All data stays on your device</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="text-4xl mb-4">☁️</div>
+                    <h3 class="text-lg font-bold text-dark-green mb-2">Secure Sync</h3>
+                    <p class="text-gray-600">Apple's CloudKit for pairing</p>
+                </div>
+            </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center justify-center px-10 py-5 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-semibold text-xl shadow-lg">
+                <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-semibold text-lg shadow-lg">
                     <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                     </svg>
-                    Download on App Store
+                    Download Now
                 </a>
-                <a href="privacy.html" class="inline-flex items-center justify-center px-10 py-5 bg-white text-dark-green border-2 border-gray-300 rounded-xl hover:border-primary hover:text-primary transition font-semibold text-xl">
+                <a href="privacy.html" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary border-2 border-primary rounded-xl hover:bg-gray-50 transition font-semibold text-lg">
                     Privacy Policy
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -359,9 +450,9 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <h4 class="font-semibold text-white mb-4">Contact</h4>
                     <ul class="space-y-2">
-                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="mailto:support@justfed.app" class="hover:text-white transition">support@justfed.app</a></li>
                     </ul>
                 </div>
             </div>
@@ -370,6 +461,22 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <button onclick="closeModal()" class="absolute top-8 right-8 text-white hover:text-gray-300 transition z-10">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img id="modalImage" src="" alt="" class="rounded-2xl max-w-full h-auto">
+            <div class="bg-white rounded-b-2xl p-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-dark-green mb-2"></h3>
+                <p id="modalDescription" class="text-gray-600"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -388,49 +495,69 @@
             });
         });
 
-        // Carousel
-        let currentSlide = 0;
-        const slides = document.querySelector('.carousel-slides');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 5;
+        // Gallery Modal
+        const galleryData = [
+            {
+                image: 'img/welcome.png',
+                title: 'Welcome to JustFed',
+                description: 'Your journey starts here. We\'re here to support you—not replace your instincts. The app guides you through setup with a warm, empathetic tone.'
+            },
+            {
+                image: 'img/main.png',
+                title: 'Always Know What Happened Last',
+                description: 'See the last feed, sleep, and nappy change at a glance. The "since last" timer helps you stay on top of your baby\'s routine without stress.'
+            },
+            {
+                image: 'img/logging.png',
+                title: 'Log in Seconds',
+                description: 'Quick logging interface designed for tired parents. One tap to log feeds, sleep, or nappies—even at 3am when you\'re half asleep.'
+            },
+            {
+                image: 'img/insights.png',
+                title: 'Understand Sleep, Feed & Diaper Trends',
+                description: 'Beautiful 7-day insights show patterns in your baby\'s routine. Simple charts and averages make it easy to spot trends and share with your pediatrician.'
+            },
+            {
+                image: 'img/pair.png',
+                title: 'Stay in Sync with Your Partner',
+                description: 'Real-time pairing via CloudKit means you and your partner always know what\'s happening. No more midnight questions about the last feed.'
+            },
+            {
+                image: 'img/dynamic.png',
+                title: 'Live Activity & Dynamic Island',
+                description: 'Track ongoing feeds and sleep sessions right from your lock screen. See elapsed time at a glance without opening the app.'
+            }
+        ];
 
-        function goToSlide(index) {
-            currentSlide = index;
-            const offset = -currentSlide * 100;
-            slides.style.transform = `translateX(${offset}%)`;
+        function openModal(index) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
 
-            // Update dots
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
+            const data = galleryData[index];
+            modalImage.src = data.image;
+            modalImage.alt = data.title;
+            modalTitle.textContent = data.title;
+            modalDescription.textContent = data.description;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
+        function closeModal(event) {
+            if (!event || event.target.id === 'modal' || event.target.tagName === 'BUTTON') {
+                const modal = document.getElementById('modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         }
 
-        // Auto-rotate every 4 seconds
-        let autoRotate = setInterval(nextSlide, 4000);
-
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                // Reset auto-rotate timer when user interacts
-                clearInterval(autoRotate);
-                autoRotate = setInterval(nextSlide, 4000);
-            });
-        });
-
-        // Pause auto-rotate on hover
-        const carouselContainer = document.querySelector('.carousel-container');
-        carouselContainer.addEventListener('mouseenter', () => {
-            clearInterval(autoRotate);
-        });
-
-        carouselContainer.addEventListener('mouseleave', () => {
-            autoRotate = setInterval(nextSlide, 4000);
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
 
         // Smooth scroll
