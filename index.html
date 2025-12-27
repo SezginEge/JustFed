@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustFed - Track Your Baby's Journey with Ease</title>
+    <meta name="description" content="Track your baby's feeds, sleep, and nappies easily. Pair with your partner for real-time sync. Privacy-first baby tracking app.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold text-indigo-600">JustFed</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                    <a href="#features" class="text-gray-700 hover:text-indigo-600 transition">Features</a>
+                    <a href="#insights" class="text-gray-700 hover:text-indigo-600 transition">Insights</a>
+                    <a href="#privacy" class="text-gray-700 hover:text-indigo-600 transition">Privacy</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="#features" class="block text-gray-700 hover:text-indigo-600 transition">Features</a>
+                <a href="#insights" class="block text-gray-700 hover:text-indigo-600 transition">Insights</a>
+                <a href="#privacy" class="block text-gray-700 hover:text-indigo-600 transition">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-indigo-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        Track Your Baby's Journey with Ease
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                        You're doing an amazing job. Let JustFed help you track feeds, sleep, and nappies
+                        so you can focus on what matters most—your baby.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#" class="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow-md hover:shadow-lg">
+                            Download on App Store
+                        </a>
+                        <a href="#features" class="inline-flex items-center justify-center px-8 py-3 bg-white text-indigo-600 border-2 border-indigo-600 rounded-lg hover:bg-indigo-50 transition">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="img/main.png" alt="JustFed App Screenshot" class="rounded-2xl shadow-2xl max-w-sm w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Everything You Need, Nothing You Don't</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Simple, intuitive features designed for tired parents who want to stay organized without the overwhelm.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Feature 1 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="mb-6">
+                        <img src="img/logging.png" alt="Easy Logging" class="rounded-xl shadow-md">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Quick & Easy Logging</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Log feeds, nappies, and sleep with just a tap. No complicated forms, no endless scrolling.
+                        See daily totals and "since last" times at a glance.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="mb-6">
+                        <img src="img/pair.png" alt="Pair with Partner" class="rounded-xl shadow-md">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Pair with Your Partner</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Share the journey together. Real-time sync via CloudKit means you and your partner
+                        always stay in the loop—no more asking "when was the last feed?"
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="mb-6">
+                        <img src="img/dynamic.png" alt="Live Activity" class="rounded-xl shadow-md">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Live Activity & Dynamic Island</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Track ongoing feeds and sleep sessions right from your lock screen.
+                        See elapsed time at a glance with Live Activity support.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 hover:shadow-lg transition">
+                    <div class="mb-6">
+                        <img src="img/welcome.png" alt="Welcome Screen" class="rounded-xl shadow-md">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Privacy-First Design</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Your data is yours. No tracking, no ads, no selling your information.
+                        Everything stays local unless you choose to pair with your partner.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="img/insights.png" alt="7-Day Insights" class="rounded-2xl shadow-xl">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Understand Your Baby's Patterns</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Get a clear picture of the past 7 days with simple bar charts and averages.
+                        See feeding frequency, sleep duration, and nappy changes at a glance.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        No overwhelming analytics or complicated graphs—just the information you need
+                        to understand your baby's routine and share with your pediatrician.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Your Privacy Matters</h2>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                We believe your family's data should stay private. Here's our commitment to you:
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="p-6 bg-indigo-50 rounded-xl">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">No Tracking</h3>
+                    <p class="text-gray-600">We don't collect, track, or sell your personal data. Ever.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-xl">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Local First</h3>
+                    <p class="text-gray-600">All data stays on your device unless you choose to pair.</p>
+                </div>
+                <div class="p-6 bg-indigo-50 rounded-xl">
+                    <div class="text-4xl mb-4">☁️</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Secure Sync</h3>
+                    <p class="text-gray-600">Paired data syncs via Apple's CloudKit—encrypted and secure.</p>
+                </div>
+            </div>
+            <a href="privacy.html" class="text-indigo-600 hover:text-indigo-700 font-medium underline">
+                Read our full Privacy Policy →
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Simplify Your Parenting Journey?</h2>
+            <p class="text-lg text-indigo-100 mb-8">
+                Join thousands of parents who trust JustFed to track what matters.
+            </p>
+            <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 rounded-lg hover:bg-gray-100 transition shadow-lg text-lg font-semibold">
+                Download Now on App Store
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">JustFed</h3>
+                    <p class="text-gray-400">
+                        A simple, privacy-first baby tracking app for modern parents.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#insights" class="hover:text-white transition">Insights</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:support@justfed.app" class="hover:text-white transition">support@justfed.app</a></li>
+                        <li><a href="#" class="hover:text-white transition">App Store</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 JustFed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
