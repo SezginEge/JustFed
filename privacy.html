@@ -11,8 +11,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
+                        primary: '#52B69A',
+                        'primary-dark': '#3D8B73',
+                        'dark-green': '#3D5845',
                     }
                 }
             }
@@ -31,11 +32,14 @@
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
-                    <a href="index.html" class="text-2xl font-bold text-indigo-600">JustFed</a>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">J</span>
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold text-dark-green">JustFed</a>
                 </div>
                 <div class="flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition">Back to Home</a>
+                    <a href="index.html" class="text-dark-green hover:text-primary transition">Back to Home</a>
                 </div>
             </div>
         </div>
@@ -62,27 +66,27 @@
                 </div>
 
                 <!-- What We Don't Collect -->
-                <div class="mb-12 bg-indigo-50 rounded-xl p-8">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">What We Don't Collect</h2>
+                <div class="mb-12 bg-green-50 rounded-xl p-8 border border-green-100">
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">What We Don't Collect</h2>
                     <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
-                            <span class="text-indigo-600 mr-2">✓</span>
+                            <span class="text-primary mr-2">✓</span>
                             <span>We don't collect personal information like names, emails, or phone numbers</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-indigo-600 mr-2">✓</span>
+                            <span class="text-primary mr-2">✓</span>
                             <span>We don't track your location or device information</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-indigo-600 mr-2">✓</span>
+                            <span class="text-primary mr-2">✓</span>
                             <span>We don't use analytics or tracking tools</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-indigo-600 mr-2">✓</span>
+                            <span class="text-primary mr-2">✓</span>
                             <span>We don't sell your data to advertisers or third parties</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-indigo-600 mr-2">✓</span>
+                            <span class="text-primary mr-2">✓</span>
                             <span>We don't show ads or use your data for marketing</span>
                         </li>
                     </ul>
@@ -90,22 +94,21 @@
 
                 <!-- How Your Data is Stored -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">How Your Data is Stored</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">How Your Data is Stored</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         All data you enter into JustFed—feeding logs, sleep times, nappy changes—is stored locally
-                        on your iPhone using Apple's CoreData framework. This means:
+                        on your iPhone. This means:
                     </p>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
                         <li>Your data never leaves your device unless you choose to pair with a partner</li>
                         <li>We have no access to your data</li>
-                        <li>Your data is protected by your device's security features</li>
-                        <li>If you delete the app, all local data is deleted with it</li>
+                        <li>Deleting the app removes all local data from your device</li>
                     </ul>
                 </div>
 
                 <!-- Pairing and CloudKit Sync -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Pairing and CloudKit Sync</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Pairing and CloudKit Sync</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         If you choose to pair with your partner, JustFed uses Apple's CloudKit to sync your data
                         between devices. Here's how it works:
@@ -113,44 +116,45 @@
                     <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4 mb-4">
                         <li>You must explicitly opt in to pairing—it's not automatic</li>
                         <li>Only paired events (feeds, sleep, nappies) are synced via CloudKit</li>
-                        <li>CloudKit data is encrypted and stored in Apple's secure cloud infrastructure</li>
+                        <li>Data is stored in Apple's iCloud infrastructure</li>
                         <li>We do not have access to your CloudKit data</li>
                         <li>You can unpair at any time to stop syncing</li>
+                        <li>CloudKit data may persist in iCloud after unpairing—manage this through your iCloud settings</li>
                     </ul>
                     <p class="text-gray-600 leading-relaxed">
                         Apple's CloudKit service is subject to Apple's own privacy policy. We recommend reviewing
-                        <a href="https://www.apple.com/legal/privacy/" target="_blank" class="text-indigo-600 hover:text-indigo-700 underline">Apple's Privacy Policy</a>
-                        to understand how they handle cloud data.
+                        <a href="https://www.apple.com/legal/privacy/" target="_blank" class="text-primary hover:text-primary-dark underline">Apple's Privacy Policy</a>
+                        to understand how they handle cloud data and encryption.
                     </p>
                 </div>
 
                 <!-- Data Security -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Data Security</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Data Security</h2>
                     <p class="text-gray-600 leading-relaxed">
-                        Your data is protected by your device's built-in security features, including encryption
-                        and passcode protection. When using CloudKit for pairing, data is encrypted in transit
-                        and at rest.
+                        Your data on your device is protected by iOS's built-in security features. When using CloudKit
+                        for pairing, Apple handles the data transmission and storage—refer to Apple's documentation
+                        for details on their security practices.
                     </p>
                 </div>
 
-                <!-- Your Rights -->
+                <!-- Your Control -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Your Rights</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Your Control</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         Since all your data is stored locally on your device, you have complete control:
                     </p>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                        <li>You can delete any entry at any time</li>
-                        <li>You can export your data for your own records</li>
-                        <li>You can delete the app and all associated data</li>
+                        <li>You can view all logged entries at any time</li>
                         <li>You can unpair from your partner to stop syncing</li>
+                        <li>Deleting the app removes all local data from your device</li>
+                        <li>CloudKit data can be managed through your iCloud settings</li>
                     </ul>
                 </div>
 
                 <!-- Children's Privacy -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Children's Privacy</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Children's Privacy</h2>
                     <p class="text-gray-600 leading-relaxed">
                         JustFed is designed for parents to track their baby's activities. We do not knowingly
                         collect personal information from children. All data entered is controlled by the parent
@@ -160,7 +164,7 @@
 
                 <!-- Third-Party Services -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Third-Party Services</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Third-Party Services</h2>
                     <p class="text-gray-600 leading-relaxed">
                         The only third-party service we use is Apple's CloudKit for optional data syncing between
                         paired devices. We do not integrate with any analytics services, advertising networks,
@@ -170,7 +174,7 @@
 
                 <!-- Changes to This Policy -->
                 <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Changes to This Policy</h2>
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Changes to This Policy</h2>
                     <p class="text-gray-600 leading-relaxed">
                         We may update this privacy policy from time to time. Any changes will be reflected in
                         the "Last updated" date at the top of this page. We encourage you to review this policy
@@ -179,21 +183,21 @@
                 </div>
 
                 <!-- Contact -->
-                <div class="mb-12 bg-gray-50 rounded-xl p-8">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Contact Us</h2>
+                <div class="mb-12 bg-gray-50 rounded-xl p-8 border border-gray-200">
+                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Contact Us</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         If you have any questions about this privacy policy or how JustFed handles your data,
                         please contact us:
                     </p>
                     <p class="text-gray-600">
-                        Email: <a href="mailto:support@justfed.app" class="text-indigo-600 hover:text-indigo-700 underline">support@justfed.app</a>
+                        Email: <a href="mailto:support@justfed.app" class="text-primary hover:text-primary-dark underline">support@justfed.app</a>
                     </p>
                 </div>
 
                 <!-- Summary -->
-                <div class="bg-indigo-600 text-white rounded-xl p-8">
+                <div class="bg-primary text-white rounded-xl p-8">
                     <h2 class="text-2xl font-semibold mb-4">The Bottom Line</h2>
-                    <p class="text-indigo-100 leading-relaxed">
+                    <p class="text-white/90 leading-relaxed">
                         Your baby's data is precious and private. We built JustFed with privacy as the foundation,
                         not an afterthought. You can use our app with confidence knowing that your family's
                         information stays with you, where it belongs.
@@ -204,32 +208,36 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
+    <footer class="bg-dark-green text-white/80 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-bold text-white mb-4">JustFed</h3>
-                    <p class="text-gray-400">
-                        A simple, privacy-first baby tracking app for modern parents.
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">J</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">JustFed</span>
+                    </div>
+                    <p class="text-white/70">
+                        The only app you need at 3am. Track feeds, sleep, and diapers simply.
                     </p>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-4">Quick Links</h4>
                     <ul class="space-y-2">
+                        <li><a href="index.html#gallery" class="hover:text-white transition">Gallery</a></li>
                         <li><a href="index.html#features" class="hover:text-white transition">Features</a></li>
-                        <li><a href="index.html#insights" class="hover:text-white transition">Insights</a></li>
                         <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Support</h4>
+                    <h4 class="font-semibold text-white mb-4">Contact</h4>
                     <ul class="space-y-2">
                         <li><a href="mailto:support@justfed.app" class="hover:text-white transition">support@justfed.app</a></li>
-                        <li><a href="#" class="hover:text-white transition">App Store</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <div class="border-t border-white/10 pt-8 text-center">
                 <p>&copy; 2025 JustFed. All rights reserved.</p>
             </div>
         </div>
