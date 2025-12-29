@@ -20,170 +20,406 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+        * {
             font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Manrope', 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        body {
+            background: #FAFAFA;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Orbs Background */
+        .orb-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #52B69A, transparent);
+            top: -100px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #3D8B73, transparent);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #52B69A 0%, #3D8B73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #52B69A;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3D8B73;
+        }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Hover Effects */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(82, 182, 154, 0.3);
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <nav class="fixed top-0 w-full glass shadow-lg z-50 border-b border-white/20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="img/justfed-icon.png" alt="JustFed" class="w-10 h-10 rounded-xl">
-                    <a href="index.html" class="text-2xl font-bold text-dark-green">JustFed</a>
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="img/justfed-icon.png" alt="JustFed" class="w-11 h-11 rounded-xl transition-transform group-hover:scale-110 group-hover:rotate-6">
+                    <span class="text-2xl font-bold text-dark-green tracking-tight">JustFed</span>
                 </div>
                 <div class="flex space-x-8">
-                    <a href="index.html" class="text-dark-green hover:text-primary transition">Back to Home</a>
+                    <a href="index.html" class="text-dark-green hover:text-primary transition-all font-medium relative group">
+                        Back to Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Privacy Policy Content -->
-    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
-            <p class="text-lg text-gray-600 mb-12">Last updated: December 27, 2025</p>
+    <section class="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="orb-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
 
-            <div class="prose prose-lg max-w-none">
-                <!-- Introduction -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Commitment to Your Privacy</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="mb-16 scroll-reveal">
+                <h1 class="text-5xl md:text-6xl font-black text-dark-green mb-6 leading-tight">
+                    Privacy <span class="gradient-text">Policy</span>
+                </h1>
+                <p class="text-xl text-gray-500 font-light">Last updated: December 27, 2025</p>
+            </div>
+
+            <!-- Introduction -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Our Commitment to Your Privacy</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
                         At JustFed, we believe your family's data should stay private. This privacy policy explains
                         how we handle your information—or more accurately, how we don't.
                     </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        In short: We don't collect, track, sell, or share your personal data. Your baby's information
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        In short: <span class="font-semibold text-dark-green">We don't collect, track, sell, or share your personal data.</span> Your baby's information
                         belongs to you and you alone.
                     </p>
                 </div>
+            </div>
 
-                <!-- What We Don't Collect -->
-                <div class="mb-12 bg-green-50 rounded-xl p-8 border border-green-100">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">What We Don't Collect</h2>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <span>We don't collect personal information like names, emails, or phone numbers</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <span>We don't track your location or device information</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <span>We don't use analytics or tracking tools</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <span>We don't sell your data to advertisers or third parties</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-primary mr-2">✓</span>
-                            <span>We don't show ads or use your data for marketing</span>
-                        </li>
-                    </ul>
+            <!-- What We Don't Collect -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 md:p-10 border-2 border-primary/20">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-8">What We Don't Collect</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't collect personal information like names, emails, or phone numbers</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't track your location or device information</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't use analytics or tracking tools</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't sell your data to advertisers or third parties</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't show ads or use your data for marketing</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- How Your Data is Stored -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">How Your Data is Stored</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        All data you enter into JustFed—feeding logs, sleep times, nappy changes—is stored locally
-                        on your iPhone. This means:
+            <!-- How Your Data is Stored -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">How Your Data is Stored</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        All data you enter into JustFed—feeding logs, sleep times, nappy changes—is <span class="font-semibold text-dark-green">stored locally
+                        on your iPhone</span>. This means:
                     </p>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                        <li>Your data never leaves your device unless you choose to pair with a partner</li>
-                        <li>We have no access to your data</li>
-                        <li>Deleting the app removes all local data from your device</li>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Your data never leaves your device unless you choose to pair with a partner</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">We have no access to your data</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes all local data from your device</span>
+                        </li>
                     </ul>
                 </div>
+            </div>
 
-                <!-- Pairing and CloudKit Sync -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Pairing and CloudKit Sync</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">
+            <!-- Pairing and CloudKit Sync -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Pairing and CloudKit Sync</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
                         If you choose to pair with your partner, JustFed uses Apple's CloudKit to sync your data
                         between devices. Here's how it works:
                     </p>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4 mb-4">
-                        <li>You must explicitly opt in to pairing—it's not automatic</li>
-                        <li>Only paired events (feeds, sleep, nappies) are synced via CloudKit</li>
-                        <li>Data is stored in Apple's iCloud infrastructure</li>
-                        <li>We do not have access to your CloudKit data</li>
-                        <li>You can unpair at any time to stop syncing</li>
-                        <li>CloudKit data may persist in iCloud after unpairing—manage this through your iCloud settings</li>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">You must explicitly opt in to pairing—it's not automatic</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Only paired events (feeds, sleep, nappies) are synced via CloudKit</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Data is stored in Apple's iCloud infrastructure</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">We do not have access to your CloudKit data</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">You can unpair at any time to stop syncing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">CloudKit data may persist in iCloud after unpairing—manage this through your iCloud settings</span>
+                        </li>
                     </ul>
-                    <p class="text-gray-600 leading-relaxed">
+                    <p class="text-lg text-gray-600 leading-relaxed">
                         Apple's CloudKit service is subject to Apple's own privacy policy. We recommend reviewing
-                        <a href="https://www.apple.com/legal/privacy/" target="_blank" class="text-primary hover:text-primary-dark underline">Apple's Privacy Policy</a>
+                        <a href="https://www.apple.com/legal/privacy/" target="_blank" class="text-primary hover:text-primary-dark underline font-medium">Apple's Privacy Policy</a>
                         to understand how they handle cloud data and encryption.
                     </p>
                 </div>
+            </div>
 
-                <!-- Data Security -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Data Security</h2>
-                    <p class="text-gray-600 leading-relaxed">
+            <!-- Data Security -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Data Security</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
                         Your data on your device is protected by iOS's built-in security features. When using CloudKit
                         for pairing, Apple handles the data transmission and storage—refer to Apple's documentation
                         for details on their security practices.
                     </p>
                 </div>
+            </div>
 
-                <!-- Your Control -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Your Control</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">
+            <!-- Your Control -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Your Control</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
                         Since all your data is stored locally on your device, you have complete control:
                     </p>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                        <li>You can view all logged entries at any time</li>
-                        <li>You can unpair from your partner to stop syncing</li>
-                        <li>Deleting the app removes all local data from your device</li>
-                        <li>CloudKit data can be managed through your iCloud settings</li>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">You can view all logged entries at any time</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">You can unpair from your partner to stop syncing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes all local data from your device</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">CloudKit data can be managed through your iCloud settings</span>
+                        </li>
                     </ul>
                 </div>
+            </div>
 
-                <!-- Children's Privacy -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Children's Privacy</h2>
-                    <p class="text-gray-600 leading-relaxed">
+            <!-- Children's Privacy -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Children's Privacy</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
                         JustFed is designed for parents to track their baby's activities. We do not knowingly
                         collect personal information from children. All data entered is controlled by the parent
                         or guardian using the app.
                     </p>
                 </div>
+            </div>
 
-                <!-- Third-Party Services -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Third-Party Services</h2>
-                    <p class="text-gray-600 leading-relaxed">
+            <!-- Third-Party Services -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Third-Party Services</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
                         The only third-party service we use is Apple's CloudKit for optional data syncing between
                         paired devices. We do not integrate with any analytics services, advertising networks,
                         or other third-party tracking tools.
                     </p>
                 </div>
+            </div>
 
-                <!-- Changes to This Policy -->
-                <div class="mb-12">
-                    <h2 class="text-2xl font-semibold text-dark-green mb-4">Changes to This Policy</h2>
-                    <p class="text-gray-600 leading-relaxed">
+            <!-- Changes to This Policy -->
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Changes to This Policy</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
                         We may update this privacy policy from time to time. Any changes will be reflected in
                         the "Last updated" date at the top of this page. We encourage you to review this policy
                         periodically.
                     </p>
                 </div>
+            </div>
 
-                <!-- Summary -->
-                <div class="bg-primary text-white rounded-xl p-8">
-                    <h2 class="text-2xl font-semibold mb-4">The Bottom Line</h2>
-                    <p class="text-white/90 leading-relaxed">
+            <!-- Summary -->
+            <div class="scroll-reveal">
+                <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-10 md:p-12 shadow-2xl">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">The Bottom Line</h2>
+                    <p class="text-xl text-white/95 leading-relaxed">
                         Your baby's data is precious and private. We built JustFed with privacy as the foundation,
                         not an afterthought. You can use our app with confidence knowing that your family's
                         information stays with you, where it belongs.
@@ -194,44 +430,63 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-green text-white/80 py-12 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-dark-green text-white/80 py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="img/justfed-icon.png" alt="JustFed" class="w-10 h-10 rounded-xl">
-                        <span class="text-xl font-bold text-white">JustFed</span>
+                    <div class="flex items-center space-x-3 mb-6 group">
+                        <img src="img/justfed-icon.png" alt="JustFed" class="w-12 h-12 rounded-xl transition-transform group-hover:scale-110">
+                        <span class="text-2xl font-bold text-white">JustFed</span>
                     </div>
-                    <p class="text-white/70 mb-4">
+                    <p class="text-white/70 mb-6 text-lg leading-relaxed">
                         The only app you need at 3am. Track feeds, sleep, and diapers simply.
                     </p>
-                    <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center text-primary hover:text-white transition font-medium">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center text-primary hover:text-white transition font-semibold text-lg group">
+                        <svg class="w-6 h-6 mr-2 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                         </svg>
                         View on App Store
                     </a>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#gallery" class="hover:text-white transition">Gallery</a></li>
-                        <li><a href="index.html#features" class="hover:text-white transition">Features</a></li>
-                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                    <h4 class="font-bold text-white mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#gallery" class="hover:text-white transition text-lg">Gallery</a></li>
+                        <li><a href="index.html#features" class="hover:text-white transition text-lg">Features</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition text-lg">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li><a href="mailto:support@justfed.app" class="hover:text-white transition">support@justfed.app</a></li>
+                    <h4 class="font-bold text-white mb-6 text-lg">Contact</h4>
+                    <ul class="space-y-3">
+                        <li><a href="mailto:support@justfed.app" class="hover:text-white transition text-lg">support@justfed.app</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 text-center">
-                <p>&copy; 2025 JustFed. All rights reserved.</p>
+                <p class="text-white/60">&copy; 2025 JustFed. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Scroll reveal animation
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+        const revealOnScroll = () => {
+            scrollRevealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('revealed');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
 
 </body>
 </html>
