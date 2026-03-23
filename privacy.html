@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - JustFed</title>
-    <meta name="description" content="JustFed Privacy Policy - Your data is yours, and we're committed to keeping it that way.">
+    <meta name="description" content="JustFed privacy policy covering local-first tracking, family sharing sync, subscriptions, and the services needed to run them.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,7 +21,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
         * {
             font-family: 'Inter', sans-serif;
@@ -37,11 +37,9 @@
             overflow-x: hidden;
         }
 
-        /* Gradient Orbs Background */
         .orb-bg {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             overflow: hidden;
             z-index: 0;
             opacity: 0.4;
@@ -70,7 +68,6 @@
             left: -100px;
         }
 
-        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -78,7 +75,6 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Gradient Text */
         .gradient-text {
             background: linear-gradient(135deg, #52B69A 0%, #3D8B73 100%);
             -webkit-background-clip: text;
@@ -86,7 +82,17 @@
             background-clip: text;
         }
 
-        /* Custom Scrollbar */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -103,53 +109,9 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #3D8B73;
         }
-
-        /* Scroll Reveal */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Button Hover Effects */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(82, 182, 154, 0.3);
-        }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full glass shadow-lg z-50 border-b border-white/20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -167,7 +129,6 @@
         </div>
     </nav>
 
-    <!-- Privacy Policy Content -->
     <section class="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
         <div class="orb-bg">
             <div class="orb orb-1"></div>
@@ -179,28 +140,24 @@
                 <h1 class="text-5xl md:text-6xl font-black text-dark-green mb-6 leading-tight">
                     Privacy <span class="gradient-text">Policy</span>
                 </h1>
-                <p class="text-xl text-gray-500 font-light">Last updated: January 28, 2026</p>
+                <p class="text-xl text-gray-500 font-light">Last updated: March 23, 2026</p>
             </div>
 
-            <!-- Introduction -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Our Commitment to Your Privacy</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Our Approach</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-4">
-                        At JustFed, we believe your family's data should stay private. This privacy policy explains
-                        how we handle your information—or more accurately, how we don't.
+                        JustFed is built to keep baby tracking simple and private. Core tracking is local-first, and we only use networked services where they are needed to provide specific features like family sharing, authentication, and subscriptions.
                     </p>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        In short: <span class="font-semibold text-dark-green">We don't collect, track, sell, or share your personal data.
-                        No user or personal information is ever stored.</span> Your baby's activity logs belong to you and you alone.
+                        In short: <span class="font-semibold text-dark-green">we do not run ads, we do not sell your data, and we do not use JustFed to build a marketing profile about you.</span>
                     </p>
                 </div>
             </div>
 
-            <!-- What We Don't Collect -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 md:p-10 border-2 border-primary/20">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-8">What We Don't Collect</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-8">What We Do Not Do</h2>
                     <div class="space-y-4">
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
@@ -208,7 +165,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't collect personal information like names, emails, or phone numbers</p>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We do not show ads inside JustFed</p>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
@@ -216,7 +173,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't track your location or device information</p>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We do not sell your data to advertisers or data brokers</p>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
@@ -224,7 +181,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't use analytics or tracking tools</p>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We do not use your baby tracking history for advertising or cross-app profiling</p>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
@@ -232,116 +189,157 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't sell your data to advertisers or third parties</p>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We don't show ads or use your data for marketing</p>
+                            <p class="text-lg text-gray-700 leading-relaxed flex-1">We do not treat every feature as cloud-only. Core tracking is designed to remain local-first.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- How Your Data is Stored -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">How Your Data is Stored</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">What Stays on Your Device</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        All data you enter into JustFed—feeding logs, sleep times, nappy changes—is <span class="font-semibold text-dark-green">stored locally
-                        on your iPhone</span>. This means:
+                        Everyday tracking data is centered on your iPhone. JustFed is designed so the core experience remains fast, direct, and usable without turning every interaction into a cloud request.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-lg text-gray-600 leading-relaxed">Your data never leaves your device</span>
+                            <span class="text-lg text-gray-600 leading-relaxed">Your logged feeds, sleep, nappies, timers, and app state are stored locally for the core app experience.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-lg text-gray-600 leading-relaxed">No personal or user information is ever stored by us</span>
+                            <span class="text-lg text-gray-600 leading-relaxed">If you never use family sharing, your day-to-day tracking can stay a single-device experience.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes all data from your device</span>
+                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes locally stored app data from your device.</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Data Security -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Data Security</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">When Data Is Sent to Our Services</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Some features require network services to work correctly. When you use those features, the app sends the information needed to provide them.
+                    </p>
+                    <div class="space-y-5">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark-green mb-2">Family sharing</h3>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Shared timelines depend on backend sync so both phones can stay aligned. If you create or join a family, relevant event history and updates are transmitted to our backend to support syncing between family members.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark-green mb-2">Authentication</h3>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                JustFed uses Firebase anonymous authentication so the app can identify a device account for protected backend features like family sharing and subscription checks.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark-green mb-2">Subscriptions</h3>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Premium purchases and activation use RevenueCat together with our backend subscription status checks so premium features can unlock correctly.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-dark-green mb-2">Sync notifications</h3>
+                            <p class="text-lg text-gray-600 leading-relaxed">
+                                Device tokens and push infrastructure may be used to notify linked devices that new shared timeline data is available.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Third-Party Services Used to Run the App</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        JustFed does use third-party infrastructure where it is necessary to operate specific features. These services are used to run the product, not to monetize your behavior.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed"><span class="font-semibold text-dark-green">Firebase</span> for anonymous authentication and related app backend access.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed"><span class="font-semibold text-dark-green">RevenueCat</span> for subscription and premium entitlement handling.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Our own backend service for family sync, invite codes, subscription status checks, and push coordination.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Security and Access</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        We try to keep access to synced features limited to authenticated app users and to only store what is needed to provide those features.
+                    </p>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        Your data on your device is protected by iOS's built-in security features. All your activity logs
-                        remain stored locally on your device. No personal or identifying information is ever transmitted or stored.
+                        No system can promise absolute security, but the app and backend are designed to protect family sync and subscription access rather than expose your data for broad commercial use.
                     </p>
                 </div>
             </div>
 
-            <!-- Your Control -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Your Control</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        Since all your data is stored locally on your device, you have complete control:
-                    </p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Your Choices</h2>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-lg text-gray-600 leading-relaxed">You can view all logged entries at any time</span>
+                            <span class="text-lg text-gray-600 leading-relaxed">You can use JustFed without enabling family sharing.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes all data from your device</span>
+                            <span class="text-lg text-gray-600 leading-relaxed">You can cancel premium through Apple subscription settings.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-lg text-gray-600 leading-relaxed">Deleting the app removes local data from your device. If you have used synced family features, backend data related to those features may also exist as part of the shared timeline service.</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Children's Privacy -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
                     <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Children's Privacy</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        JustFed is designed for parents to track their baby's activities. We do not knowingly
-                        collect personal information from children. All data entered is controlled by the parent
-                        or guardian using the app.
+                        JustFed is built for parents and caregivers to track baby activity. We do not knowingly build child profiles for advertising or analytics purposes. The information entered into the app is controlled by the adult using it.
                     </p>
                 </div>
             </div>
 
-            <!-- Third-Party Services -->
-            <div class="mb-16 scroll-reveal">
-                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
-                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Third-Party Services</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed">
-                        JustFed does not use any third-party services. We do not integrate with any analytics services,
-                        advertising networks, or other third-party tracking tools.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Contact Us -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
                     <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Contact Us</h2>
                     <p class="text-lg text-gray-600 leading-relaxed mb-4">
-                        If you have any questions or concerns about this privacy policy or how we handle your data,
-                        please don't hesitate to reach out:
+                        If you have questions about this policy or how JustFed handles data for local tracking, sharing, or subscriptions, contact:
                     </p>
                     <p class="text-lg text-gray-600 leading-relaxed">
                         Email: <a href="mailto:sezginege.mail@gmail.com" class="text-primary hover:text-primary-dark underline font-medium">sezginege.mail@gmail.com</a>
@@ -349,33 +347,26 @@
                 </div>
             </div>
 
-            <!-- Changes to This Policy -->
             <div class="mb-16 scroll-reveal">
                 <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
                     <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Changes to This Policy</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        We may update this privacy policy from time to time. Any changes will be reflected in
-                        the "Last updated" date at the top of this page. We encourage you to review this policy
-                        periodically.
+                        We may update this page as JustFed evolves. If we change how core tracking, family sync, or subscriptions work in a way that affects this policy, we will update the "Last updated" date above.
                     </p>
                 </div>
             </div>
 
-            <!-- Summary -->
             <div class="scroll-reveal">
                 <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-10 md:p-12 shadow-2xl">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">The Bottom Line</h2>
                     <p class="text-xl text-white/95 leading-relaxed">
-                        Your baby's data is precious and private. We built JustFed with privacy as the foundation,
-                        not an afterthought. You can use our app with confidence knowing that your family's
-                        information stays with you, where it belongs.
+                        JustFed is privacy-first, not privacy-fiction. Core tracking is local-first, premium and family features use the services needed to work, and we do not use your data as an advertising product.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-dark-green text-white/80 py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-12 mb-12">
@@ -385,7 +376,7 @@
                         <span class="text-2xl font-bold text-white">JustFed</span>
                     </div>
                     <p class="text-white/70 mb-6 text-lg leading-relaxed">
-                        The only app you need at 3am. Track feeds, sleep, and diapers simply.
+                        Baby tracking for feeds, sleep, and nappies, with premium family sync, deeper insights, recap sharing, and export.
                     </p>
                     <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center text-primary hover:text-white transition font-semibold text-lg group">
                         <svg class="w-6 h-6 mr-2 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
@@ -397,8 +388,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-6 text-lg">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html#gallery" class="hover:text-white transition text-lg">Gallery</a></li>
                         <li><a href="index.html#features" class="hover:text-white transition text-lg">Features</a></li>
+                        <li><a href="index.html#premium" class="hover:text-white transition text-lg">Premium</a></li>
+                        <li><a href="index.html#gallery" class="hover:text-white transition text-lg">Gallery</a></li>
+                        <li><a href="terms/" class="hover:text-white transition text-lg">Terms of Use</a></li>
                         <li><a href="privacy.html" class="hover:text-white transition text-lg">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -409,13 +402,12 @@
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 text-center">
-                <p class="text-white/60">&copy; 2025 JustFed. All rights reserved.</p>
+                <p class="text-white/60">&copy; 2026 JustFed. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Scroll reveal animation
         const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
 
         const revealOnScroll = () => {
@@ -430,8 +422,7 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+        revealOnScroll();
     </script>
-
 </body>
 </html>

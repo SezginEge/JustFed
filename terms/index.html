@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - JustFed</title>
+    <meta name="description" content="JustFed Terms of Use covering app access, subscriptions, acceptable use, and service updates.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#52B69A',
+                        'primary-dark': '#3D8B73',
+                        'dark-green': '#3D5845'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Manrope', 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        body {
+            background: #FAFAFA;
+            overflow-x: hidden;
+        }
+
+        .orb-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #52B69A, transparent);
+            top: -100px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #3D8B73, transparent);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #52B69A 0%, #3D8B73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #52B69A;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3D8B73;
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed top-0 w-full glass shadow-lg z-50 border-b border-white/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.location.href='../index.html'">
+                    <img src="../img/justfed-icon.png" alt="JustFed" class="w-11 h-11 rounded-xl transition-transform group-hover:scale-110 group-hover:rotate-6">
+                    <span class="text-2xl font-bold text-dark-green tracking-tight">JustFed</span>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="../index.html" class="text-dark-green hover:text-primary transition-all font-medium relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="../privacy.html" class="text-dark-green hover:text-primary transition-all font-medium relative group">
+                        Privacy
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="orb-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="mb-16 scroll-reveal">
+                <h1 class="text-5xl md:text-6xl font-black text-dark-green mb-6 leading-tight">
+                    Terms of <span class="gradient-text">Use</span>
+                </h1>
+                <p class="text-xl text-gray-500 font-light">Effective date: March 23, 2026</p>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Overview</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        These Terms of Use govern your access to and use of JustFed, including the JustFed iPhone app, the JustFed website, and any premium features made available through the app.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        By using JustFed, you agree to these terms. If you do not agree, do not use the app or website.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Using JustFed</h2>
+                    <ul class="space-y-4">
+                        <li class="text-lg text-gray-600 leading-relaxed">You may use JustFed only for lawful purposes and in a way that does not interfere with the service or other users.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">You are responsible for the activity that happens through your use of the app on your devices.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">You may not attempt to misuse, reverse engineer, disrupt, or gain unauthorized access to JustFed or its related services.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Subscriptions and Premium Features</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        Some features of JustFed require a paid subscription. Premium features currently include family sharing, longer insight windows, recap sharing, and PDF export.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="text-lg text-gray-600 leading-relaxed">Subscriptions are billed through Apple using your App Store account.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">Subscriptions renew automatically unless cancelled through Apple before the renewal date.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">Pricing, billing terms, refunds, and cancellation handling are subject to Apple's subscription policies.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">Premium access may depend on subscription verification and backend activation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Family Sharing Features</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        If you use family sharing, JustFed provides synced timelines so linked devices can stay aligned.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="text-lg text-gray-600 leading-relaxed">You are responsible for inviting only people you trust to share data with.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">Shared family activity may be synchronized through backend services so it can appear on linked devices.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">Family sharing access may end if a subscription expires or a family is ended by a participant with the required permissions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Availability and Changes</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                        JustFed may change over time. Features may be added, changed, improved, limited, or removed.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        We do not guarantee that every feature or part of the service will always be available, uninterrupted, or error-free.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Intellectual Property</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        JustFed, including its design, branding, software, content, and related materials, is owned by or licensed to JustFed and is protected by applicable intellectual property laws. These terms do not grant you ownership of the app or website.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Disclaimers</h2>
+                    <ul class="space-y-4">
+                        <li class="text-lg text-gray-600 leading-relaxed">JustFed is provided on an "as is" and "as available" basis.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">JustFed is a tracking and organizational tool. It is not medical advice and should not be relied on as a substitute for professional medical judgment.</li>
+                        <li class="text-lg text-gray-600 leading-relaxed">You are responsible for how you interpret and use information logged or displayed in the app.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Limitation of Liability</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        To the maximum extent permitted by law, JustFed will not be liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, use, goodwill, or profits arising from your use of the app or website.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-16 scroll-reveal">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-green mb-6">Changes to These Terms</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        We may update these terms from time to time. If we do, we will update the effective date on this page. Your continued use of JustFed after changes become effective means you accept the updated terms.
+                    </p>
+                </div>
+            </div>
+
+            <div class="scroll-reveal">
+                <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-10 md:p-12 shadow-2xl">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact</h2>
+                    <p class="text-xl text-white/95 leading-relaxed mb-4">
+                        If you have questions about these terms, contact:
+                    </p>
+                    <p class="text-xl text-white font-semibold">
+                        <a href="mailto:sezginege.mail@gmail.com" class="underline">sezginege.mail@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-green text-white/80 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6 group">
+                        <img src="../img/justfed-icon.png" alt="JustFed" class="w-12 h-12 rounded-xl transition-transform group-hover:scale-110">
+                        <span class="text-2xl font-bold text-white">JustFed</span>
+                    </div>
+                    <p class="text-white/70 mb-6 text-lg leading-relaxed">
+                        Baby tracking for feeds, sleep, and nappies, with premium family sync, deeper insights, recap sharing, and export.
+                    </p>
+                    <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="inline-flex items-center text-primary hover:text-white transition font-semibold text-lg group">
+                        <svg class="w-6 h-6 mr-2 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        View on App Store
+                    </a>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html#features" class="hover:text-white transition text-lg">Features</a></li>
+                        <li><a href="../index.html#premium" class="hover:text-white transition text-lg">Premium</a></li>
+                        <li><a href="index.html" class="hover:text-white transition text-lg">Terms of Use</a></li>
+                        <li><a href="../privacy.html" class="hover:text-white transition text-lg">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6 text-lg">Contact</h4>
+                    <p class="text-white/70 mb-3 text-base">Reach us anytime for support</p>
+                    <a href="mailto:sezginege.mail@gmail.com" class="text-primary hover:text-white transition text-lg font-medium">sezginege.mail@gmail.com</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-white/60">&copy; 2026 JustFed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+        const revealOnScroll = () => {
+            scrollRevealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('revealed');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
