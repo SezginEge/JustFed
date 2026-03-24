@@ -131,79 +131,6 @@
             border-color: rgba(82, 182, 154, 0.35);
         }
 
-        .hero-grid {
-            display: grid;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: minmax(0, 1.02fr) minmax(360px, 420px);
-            }
-        }
-
-        .device-stage {
-            position: relative;
-            width: 100%;
-            max-width: 390px;
-            margin: 0 auto;
-        }
-
-        .device-frame {
-            position: relative;
-            padding: 14px;
-            border-radius: 42px;
-            background: linear-gradient(180deg, #243328 0%, #182118 100%);
-            box-shadow: 0 30px 90px rgba(36, 51, 40, 0.28);
-        }
-
-        .device-screen {
-            position: relative;
-            aspect-ratio: 1284 / 2778;
-            border-radius: 30px;
-            overflow: hidden;
-            background: #ffffff;
-        }
-
-        .carousel-slides {
-            height: 100%;
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .carousel-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            object-position: top center;
-        }
-
-        .carousel-dot {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background-color: #52B69A;
-            width: 2rem;
-            border-radius: 9999px;
-        }
-
         .scroll-reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -250,10 +177,6 @@
                         Premium
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="#gallery" class="text-dark-green hover:text-primary font-medium transition-all relative group">
-                        Gallery
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-                    </a>
                     <a href="privacy.html" class="text-dark-green hover:text-primary font-medium transition-all relative group">
                         Privacy
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
@@ -273,7 +196,6 @@
             <div class="px-4 py-4 space-y-2">
                 <a href="#features" class="block px-4 py-3 text-dark-green hover:bg-primary/10 rounded-xl transition">Features</a>
                 <a href="#premium" class="block px-4 py-3 text-dark-green hover:bg-primary/10 rounded-xl transition">Premium</a>
-                <a href="#gallery" class="block px-4 py-3 text-dark-green hover:bg-primary/10 rounded-xl transition">Gallery</a>
                 <a href="privacy.html" class="block px-4 py-3 text-dark-green hover:bg-primary/10 rounded-xl transition">Privacy</a>
                 <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="block px-4 py-3 bg-primary text-white rounded-xl text-center font-semibold">Download App</a>
             </div>
@@ -288,8 +210,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="hero-grid">
-                <div class="text-center lg:text-left">
+            <div class="max-w-5xl mx-auto text-center">
                     <div class="inline-flex items-center gap-3 mb-6 px-5 py-2.5 bg-white/70 border border-primary/20 rounded-full text-primary font-semibold text-sm tracking-wide">
                         <span>Built for real 3am moments</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
@@ -301,11 +222,11 @@
                         <span class="gradient-text">Understand the pattern later.</span>
                     </h1>
 
-                    <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
                         JustFed helps you log feeds, sleep, and nappies in seconds, then turns that history into clearer insights, easier partner coordination, and shareable recaps.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-10">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
                         <a href="https://apps.apple.com/us/app/just-fed/id6757015721" target="_blank" class="btn-primary inline-flex items-center justify-center px-10 py-5 bg-primary text-white rounded-2xl font-bold text-lg shadow-2xl group">
                             <svg class="w-7 h-7 mr-3 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -320,7 +241,7 @@
                         </a>
                     </div>
 
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+                    <div class="flex flex-wrap justify-center gap-3 mb-10">
                         <span class="px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-700">Fast feed, sleep, and nappy logging</span>
                         <span class="px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-700">Offline-friendly by default</span>
                         <span class="px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-700">Privacy-first design</span>
@@ -340,40 +261,6 @@
                             <p class="text-lg font-semibold text-ink">Family sync, 15D and 30D views, recap sharing, PDF export.</p>
                         </div>
                     </div>
-                </div>
-
-                <div id="gallery" class="scroll-reveal device-stage">
-                    <div class="relative">
-                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
-                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
-                        <div class="device-frame">
-                            <div class="device-screen ring-1 ring-white/50">
-                                <div class="carousel-container">
-                                    <div class="carousel-slides">
-                                        <div class="carousel-slide">
-                                            <img src="img/main.png" alt="JustFed main dashboard">
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/logging.png" alt="Quick logging flow">
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/insights.png" alt="Insights screen">
-                                        </div>
-                                        <div class="carousel-slide">
-                                            <img src="img/dynamic.png" alt="Live Activity support">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-center mt-8 space-x-2">
-                            <button class="carousel-dot active w-3 h-3 rounded-full bg-primary shadow-sm" data-slide="0" aria-label="Slide 1"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm" data-slide="1" aria-label="Slide 2"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm" data-slide="2" aria-label="Slide 3"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 shadow-sm" data-slide="3" aria-label="Slide 4"></button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -665,7 +552,6 @@
                     <ul class="space-y-3">
                         <li><a href="#features" class="hover:text-white transition text-lg">Features</a></li>
                         <li><a href="#premium" class="hover:text-white transition text-lg">Premium</a></li>
-                        <li><a href="#gallery" class="hover:text-white transition text-lg">Gallery</a></li>
                         <li><a href="terms/" class="hover:text-white transition text-lg">Terms of Use</a></li>
                         <li><a href="privacy.html" class="hover:text-white transition text-lg">Privacy Policy</a></li>
                     </ul>
@@ -706,29 +592,6 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        const slides = document.querySelector('.carousel-slides');
-        const dots = document.querySelectorAll('.carousel-dot');
-        let currentSlide = 0;
-
-        const updateCarousel = index => {
-            currentSlide = index;
-            slides.style.transform = `translateX(-${index * 100}%)`;
-            dots.forEach((dot, dotIndex) => {
-                dot.classList.toggle('active', dotIndex === index);
-                dot.classList.toggle('bg-primary', dotIndex === index);
-                dot.classList.toggle('bg-gray-300', dotIndex !== index);
-            });
-        };
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                updateCarousel(Number(dot.dataset.slide));
-            });
-        });
-
-        setInterval(() => {
-            updateCarousel((currentSlide + 1) % dots.length);
-        }, 4500);
     </script>
 </body>
 </html>
