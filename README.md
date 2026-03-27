@@ -1,6 +1,6 @@
-# JustFed Website
+# Just Fed! Website
 
-A modern, minimalistic, empathic static website for the JustFed iOS app.
+A modern, minimalistic, empathic static website for the Just Fed! iOS app.
 
 ## Overview
 
